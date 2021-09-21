@@ -2,11 +2,11 @@
 
  <img src="docs/static/brandi.png" alt="brandi logo" width="150" align="right"/>
 
-Brandy is a simple Python 3.8+ web wsgi framework inspired by Flask. It is designed as an academic project as well as for personal purposes. Brandy uses mako templates to simplify development and distinguish it from flask. It works on [Gunicorn](https://github.com/benoitc/gunicorn)
+Brandi is a simple Python 3.8+ web wsgi framework inspired by Flask. It is designed as an academic project as well as for personal purposes. Brandi uses mako templates to simplify development and distinguish it from flask. It works on [Gunicorn](https://github.com/benoitc/gunicorn)
 <br/>
 <br/>
 <br/>
-> ⚠️ Brandy does not have an installation pypi package yet
+> ⚠️ Brandi does not have an installation pypi package yet
 
 ## Installation
 ```bash
@@ -20,7 +20,7 @@ pip install -r requirements/requrements.dev.txt
 Simple app
 ```python
 # app.py
-from brandie import Brandi, json
+from brandi import Brandi, json
 
 app = Brandi(__name__)
 
