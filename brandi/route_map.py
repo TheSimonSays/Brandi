@@ -3,6 +3,9 @@ from brandi.route import Route
 
 
 class RouteMap:
+    """
+    A class that contains all the routes
+    """
     routes: t.List[Route] = []
 
     @classmethod

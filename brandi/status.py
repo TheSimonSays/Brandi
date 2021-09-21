@@ -1,3 +1,5 @@
+# all http statuses
+
 HTTP_STATUS = {
     100: '100 Continue',
     101: '101 Switching Protocols',

@@ -17,3 +17,15 @@ def test_routes():
 
     response = app.get('/')
     assert response.status == '200 OK'
+
+
+def test_route_params():
+    brandi, app = init_app('test_route_params_app')
+
+    @brandi.route('/users/<int:user_id>')
+    def main_route(user_id, request):
+        return text(str(user_id), 200)
+
+    response = app.get('/users/1')
+    assert response.status == '200 OK'
+    assert '1' in response

@@ -37,7 +37,17 @@ class Response:
         return self._body.encode(self.charset)
 
 
+# all methods below returns an object of Response class
+
 def template(template: str, status: int = 200, content_type: str = 'text/html', headers: Headers = None, **context) -> Response:    # noqa: E501
+    """
+    Response object that contains prepared mako template from file
+    :param template: path to template
+    :param status: http status
+    :param content_type: response content type (default text/html)
+    :param headers: dict of headers (defaul None)
+    :param context: kwargs like, must contains variables declared in the template
+    """
     return Response(
         render_template(template, **context),
         status,
@@ -47,6 +57,14 @@ def template(template: str, status: int = 200, content_type: str = 'text/html', 
 
 
 def template_string(html_string: str, status: int = 200, content_type: str = 'text/html', headers: Headers = None, **context) -> Response:  # noqa: E501
+    """
+    Response object that contains prepared mako template from string
+    :param html_string: mako-style html string
+    :param status: http status
+    :param content_type: response content type (default text/html)
+    :param headers: dict of headers (defaul None)
+    :param context: kwargs like, must contains variables declared in the template
+    """
     return Response(
         render_template_string(html_string, **context),
         status,
@@ -56,12 +74,33 @@ def template_string(html_string: str, status: int = 200, content_type: str = 'te
 
 
 def json(body: dict, status: int = 200, content_type: str = 'application/json', headers: Headers = None) -> Response:
+    """
+    Response object that contains prepared json
+    :param body: dict object
+    :param status: http status
+    :param content_type: response content type (default application/json)
+    :param headers: dict of headers (defaul None)
+    """
     return Response(dumps(body), status, content_type, headers)
 
 
 def html(body: t.Any, status: int = 200, content_type: str = 'text/html', headers: Headers = None) -> Response:
+    """
+    Response object that contains prepared html
+    :param body: dict object
+    :param status: http status
+    :param content_type: response content type (default text/html)
+    :param headers: dict of headers (defaul None)
+    """
     return Response(body, status, content_type, headers)
 
 
 def text(body: t.Any, status: int = 200, content_type: str = 'text/plain', headers: Headers = None) -> Response:
+    """
+    Response object that contains prepared plain text
+    :param body: dict object
+    :param status: http status
+    :param content_type: response content type (default text/plain)
+    :param headers: dict of headers (defaul None)
+    """
     return Response(body, status, content_type, headers)

@@ -23,5 +23,10 @@ class Brandi(App):
         self.templates_folder = templates_folder or self.config['TEMPLATE_FOLDER']
 
     def __call__(self, environe: t.Dict[str, t.Any], start_response: t.Any) -> t.Any:
+        """
+        Brandi entry point
+        :param environ: dict of wsgi environ
+        :param start_response: point of entry mod_wsgi 
+        """
         self.init_request_handler(environe, start_response)
         return self.request_handler.request_dispatch()

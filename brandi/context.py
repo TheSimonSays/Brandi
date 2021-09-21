@@ -1,4 +1,8 @@
 class Context:
+    """
+    A temporary class
+    I should think of something better
+    """
     current_app: object
 
     @classmethod
