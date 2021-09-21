@@ -55,15 +55,31 @@ app = Brandi(__name__, templates_folder='templates/')
 def index(request):
     return template('index.html', 200, title='Brandi')
 ```
+Path parameters
+```python
+# app.py
+from brandi import Brandi, text
+
+app = Brandi(__name__)
+
+@app.route('/user/<string:user_name>', methods=['GET', 'POST'])
+def index(user_name, request):
+    return text(f'Hello, {user_name}')
+```
+
 Run app
 ```bash
 gunicorn app:app --reload
 ```
 
 ## Contributing
-Contributions Welcome!
+**Contributions Welcome!**
 
 ## Roadmap
 
-- variable rules to ULR
+- ~~variable rules to ULR (path parameters)~~
 - group exceptions
+- blueprints
+- logging
+- middlewares
+- cookies
